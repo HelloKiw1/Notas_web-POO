@@ -1,30 +1,111 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Notas</title>
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .note-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5em;
+        }
+
+        .note-card {
+            background: white;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .note-card h2 {
+            margin: 0 0 0.5em;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+
+        .note-card .content {
+            white-space: normal;
+            color: #333;
+        }
+
+        .note-card .actions {
+            display: flex;
+            gap: 0.5em;
+            justify-content: flex-end;
+            margin-top: 1em;
+        }
+
+        .note-card .actions a {
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.3em 0.8em;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+
+        .note-card .actions a:first-child {
+            background-color: #2980b9;
+            color: white;
+        }
+
+        .note-card .actions .delete {
+            background-color: #c0392b;
+            color: white;
+        }
+
+        .note-card .actions a:hover {
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Minhas Notas</h1>
 
+    <!-- ✅ Cabeçalho -->
+    <header>
+        <img src="https://cdn.anotepad.com/images/anotepad.svg?v=250503" alt="Logo do Site">
+        <div class="nav-buttons">
+            <a href="http://localhost:8080/notes">Página Principal</a>
+            <a href="http://localhost:8080/contato">Contato</a>
+        </div>
+    </header>
+
+    <div class="container1">
+        <h1>Minhas Anotações</h1>
+
+        <!-- ✅ Formulário -->
         <form action="#" th:action="@{/notes}" th:object="${note}" method="post" class="note-form">
             <input type="text" th:field="*{title}" placeholder="Título" required />
             <textarea th:field="*{content}" placeholder="Conteúdo" required></textarea>
             <button type="submit">Adicionar</button>
         </form>
+        </div>
 
-        <div class="note-list">
-            <div th:each="n : ${notes}" class="note-card">
-                <h2 th:text="${n.title}"></h2>
-                <p th:text="${#strings.abbreviate(n.content, 100)}"></p>
-                <div class="actions">
-                    <a th:href="@{'/notes/' + ${n.id}}">Ver</a>
-                    <a th:href="@{'/notes/delete/' + ${n.id}}" class="delete">Excluir</a>
-                </div>
-            </div>
+        <!-- ✅ Grade de 3 colunas -->
+             <div class="container">
+
+        <div class="note-grid">
+    <div th:each="n : ${notes}" class="note-card">
+        <h2 th:text="${n.title}"></h2>
+        
+        <!-- Mostra só os 150 primeiros caracteres -->
+        <div class="content" th:text="${#strings.abbreviate(n.content, 150)} + '...'"></div>
+
+        <div class="actions">
+            <a th:href="@{'/notes/' + ${n.id}}">Ver</a>
+            <a th:href="@{'/notes/delete/' + ${n.id}}" class="delete">Excluir</a>
         </div>
     </div>
+</div>
+</div>
+
+
+    <!-- ✅ Rodapé -->
+    <footer>
+        Trabalho de Programação Orientada a Objetos — por Samara Coelho e Eduardo Henrique 💻
+    </footer>
+
 </body>
 </html>
