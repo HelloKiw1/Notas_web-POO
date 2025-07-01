@@ -1,4 +1,3 @@
-# Notas_web-POO
 # Aplicação de Anotações
 
 Uma aplicação simples para armazenar anotações, permitindo adicionar e remover anotações de um quadro interativo. O sistema é construído com Spring Boot e utiliza banco de dados em memória para facilitar o desenvolvimento e testes.
@@ -16,6 +15,11 @@ mvnd spring-boot:run
 ```
 
 Caso o comando `mvnd` não funcione, instale o Maven Daemon (mvnd) ou utilize `mvn` no lugar.
+
+## Links para acessar
+
+- Acessar Home: http://localhost:8080/notes
+- Acessar Banco de Dados (H2 Console): http://localhost:8080/h2-console
 
 ## Tecnologias utilizadas
 
