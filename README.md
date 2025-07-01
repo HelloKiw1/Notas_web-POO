@@ -40,5 +40,5 @@ Caso o comando `mvnd` não funcione, instale o Maven Daemon (mvnd) ou utilize `m
 
 ## Desenvolvedores
 
-- Samara Coelho (https://github.com/SamaraCdS-UFT)
-- Eduardo Henrique (https://github.com/HelloKiw1)
+- [Samara Coelho] (https://github.com/SamaraCdS-UFT)
+- [Eduardo Henrique] (https://github.com/HelloKiw1)
