@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Editar: ' + ${note.title}">Editar Nota</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .edit-form {
+            background: white;
+            padding: 2em;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 2em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .edit-form input[type="text"],
+        .edit-form textarea {
+            width: 100%;
+            padding: 0.8em;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .edit-form button {
+            align-self: flex-start;
+            background-color: #f39c12;
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 0.6em 1.2em;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .edit-form button:hover {
+            opacity: 0.9;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1em;
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ✅ Cabeçalho -->
+    <header>
+        <img src="https://cdn.anotepad.com/images/anotepad.svg?v=250503" alt="Logo do Site">
+        <div class="nav-buttons">
+            <a href="http://localhost:8080/notes">Página Principal</a>
+            <a href="http://localhost:8080/contato">Contato</a>
+        </div>
+    </header>
+
+    <!-- ✅ Conteúdo -->
+    <div class="container">
+        <a href="/notes" class="back-link">&larr; Voltar para lista de notas</a>
+
+        <form th:action="@{/notes/update}" th:object="${note}" method="post" class="edit-form">
+            <input type="hidden" th:field="*{id}" />
+            <input type="text" th:field="*{title}" placeholder="Título" required />
+            <textarea th:field="*{content}" placeholder="Conteúdo" required></textarea>
+            <button type="submit">Atualizar</button>
+        </form>
+    </div>
+
+    <!-- ✅ Rodapé -->
+    <footer>
+        Trabalho de Programação Orientada a Objetos — por Samara Coelho e Eduardo Henrique 💻
+    </footer>
+
+</body>
+</html>

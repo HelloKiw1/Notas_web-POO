@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Notas</title>
+    <link rel="icon" href="https://cdn.anotepad.com/images/anotepad.svg?v=250503" type="image/svg+xml">
     <link rel="stylesheet" href="/style.css">
     <style>
         .note-grid {
@@ -9,6 +10,12 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5em;
         }
+        
+        .note-card .actions .edit {
+        background-color: #f39c12;
+        color: white;
+        }
+
 
         .note-card {
             background: white;
@@ -95,6 +102,7 @@
 
         <div class="actions">
             <a th:href="@{'/notes/' + ${n.id}}">Ver</a>
+            <a th:href="@{'/notes/edit/' + ${n.id}}" class="edit">Editar</a>
             <a th:href="@{'/notes/delete/' + ${n.id}}" class="delete">Excluir</a>
         </div>
     </div>
