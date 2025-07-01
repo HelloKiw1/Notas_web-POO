@@ -1,0 +1,56 @@
+
+body {
+    font-family: sans-serif;
+    background-color: #f6f8fa;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 2em;
+}
+.note-form {
+    margin-bottom: 2em;
+}
+.note-form input, .note-form textarea {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 0.5em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.note-form button {
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+.note-list {
+    display: grid;
+    gap: 1em;
+}
+.note-card {
+    background: white;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.note-card .actions {
+    margin-top: 1em;
+}
+.note-card .actions a {
+    margin-right: 1em;
+    text-decoration: none;
+    color: #007bff;
+}
+.note-card .actions .delete {
+    color: crimson;
+}
+.timestamp {
+    color: gray;
+    font-size: 0.9em;
+    margin-top: 1em;
+}

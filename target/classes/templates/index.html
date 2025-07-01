@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Notas</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Minhas Notas</h1>
+
+        <form action="#" th:action="@{/notes}" th:object="${note}" method="post" class="note-form">
+            <input type="text" th:field="*{title}" placeholder="Título" required />
+            <textarea th:field="*{content}" placeholder="Conteúdo" required></textarea>
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <div class="note-list">
+            <div th:each="n : ${notes}" class="note-card">
+                <h2 th:text="${n.title}"></h2>
+                <p th:text="${#strings.abbreviate(n.content, 100)}"></p>
+                <div class="actions">
+                    <a th:href="@{'/notes/' + ${n.id}}">Ver</a>
+                    <a th:href="@{'/notes/delete/' + ${n.id}}" class="delete">Excluir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
