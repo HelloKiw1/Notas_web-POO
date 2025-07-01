@@ -18,8 +18,10 @@ Caso o comando `mvnd` não funcione, instale o Maven Daemon (mvnd) ou utilize `m
 
 ## Links para acessar
 
-- Acessar Home: http://localhost:8080/notes
-- Acessar Banco de Dados (H2 Console): http://localhost:8080/h2-console
+| Recurso                 | URL                                      |
+|-------------------------|------------------------------------------|
+| Acessar Home            | http://localhost:8080/notes              |
+| Acessar Banco de Dados  | http://localhost:8080/h2-console         |
 
 ## Tecnologias utilizadas
 
